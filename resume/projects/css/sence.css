@@ -1,0 +1,31 @@
+.content {
+  width: 800px;
+  margin: 0 auto;
+}
+h1 {
+  color: #666;
+  text-align: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+}
+ul {
+  list-style: none;
+  padding: 0;
+  margin-left: -10px;
+}
+ul>li {
+  width: 260px;
+  float:left;
+  box-shadow: 0 1px 4px 2px rgba(0, 0, 0, 0.2);
+  margin-left: 10px;
+  margin-top: 30px;
+}
+ul>li>img {
+  width: 100%;
+  opacity: 0.8;
+}
+.word {
+  padding: 20px 0;
+  text-align: center;
+
+}
