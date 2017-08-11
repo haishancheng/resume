@@ -1,0 +1,15 @@
+@charset "utf-8";
+@font-face {
+  font-family: 'iconfont';  /* project id 381635 */
+  src: url('//at.alicdn.com/t/font_381635_pwkzm4pjvfsz6w29.eot');
+  src: url('//at.alicdn.com/t/font_381635_pwkzm4pjvfsz6w29.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_381635_pwkzm4pjvfsz6w29.woff') format('woff'),
+  url('//at.alicdn.com/t/font_381635_pwkzm4pjvfsz6w29.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_381635_pwkzm4pjvfsz6w29.svg#iconfont') format('svg');
+}
+.icon-touxiang::before {
+  font-family: iconfont;
+  content: "\e613";
+  color: red;
+}
+span

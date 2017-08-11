@@ -1,0 +1,47 @@
+.head {
+  background: rgb(241,241,241);
+  width: 600px;
+  border-radius: 2px;
+  margin: 0 auto;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+.head div {
+  float: left;
+}
+.head::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.head a {
+  display: block;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #000;
+}
+a:hover{
+  background-color: #ccc;
+  display: block;
+}
+.more {
+  position: relative;
+}
+.more:hover ul {
+  display: block;
+}
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  top: 38px;
+  left: 0;
+
+}
+.head ul a {
+  padding: 10px 20px;
+}
