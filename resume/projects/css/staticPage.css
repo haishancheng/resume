@@ -65,7 +65,7 @@ nav>ul>li>a {
   font-weight: bolder;
   font-size: 70px;
 }
-/*--------
+/*main下的第一块*/
 .services {
   height: 700px;
   text-align: center;
@@ -123,8 +123,7 @@ nav>ul>li>a {
   width: 100%;
   }
 }
-第二段
-------------*/
+/*main下的第二块*/
 .portfolio {
   height: 1230px;
   background: #f7f7f7;
