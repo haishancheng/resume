@@ -1,0 +1,2 @@
+1.浮动元素设置table-cell好像无效
+2.浮动元素设置inline-block？？？
