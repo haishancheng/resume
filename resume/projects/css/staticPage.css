@@ -66,7 +66,63 @@ nav>ul>li>a {
   font-size: 70px;
 }
 /*--------
+.services {
+  height: 700px;
+  text-align: center;
+}
+.services>p {
+  font-size: 40px;
+  font-weight: 700;
+  margin: 160px 0 80px;
+}
+.services>p>span {
+  font-size: 1rem;
+  font-weight: normal;
+  font-style: oblique;
+  color: #666;
+}
+.servicesContent {
+  width: 1250px;
+  margin: 0 auto;
+  /* background: yellow; */
+}
+.iconfont {
+  display: inline-block;
+  font-size: 70px;
+  color: white;
+  background: #fed136;
+  border-radius: 70px;
+  padding: 15px;
+  margin-bottom: 10px;
+}
+.servicesContent>div {
+  float:left;
+  width:calc(33.33% - 40px);
+  margin: 0 20px;
+  /* background: red; */
 
+}
+.servicesContent>div>p {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.75;
+  margin-top: 10px;
+
+}
+.servicesContent::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+@media (max-width: 1280px) {
+  .servicesContent>div {
+    width: 100%;
+    margin: 10px 0;
+  }
+  .servicesContent {
+  width: 100%;
+  }
+}
 第二段
 ------------*/
 .portfolio {
