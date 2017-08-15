@@ -86,7 +86,7 @@ nav>ul>li>a {
   margin: 0 auto;
   /* background: yellow; */
 }
-.iconfont {
+i.iconfont {
   display: inline-block;
   font-size: 70px;
   color: white;
