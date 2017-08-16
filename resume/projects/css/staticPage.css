@@ -26,7 +26,7 @@ a {
   background-color: #e8cb4f;
 }
 .layout {
-  width: 1000px;
+  width: 1250px;
   margin: 0 auto;
 }
 body {
@@ -45,9 +45,10 @@ body {
   font-style: oblique;
   color: #666;
 }
-/* .content {
+.content {
   margin: 80px 0;
-} */
+  text-align: center;
+}
 /*-----------------------*/
 
 html, body {
@@ -59,6 +60,7 @@ header {
   background-repeat: no-repeat; 
   background-size: cover;
   overflow: hidden;
+  min-width: 1250px;/*这个及其重要，可以解决，某些部分设置了固定宽度，当你缩小窗口导致把页面撑开，出现了滚动条，同时width100%的计算参考是浏览器当前的宽度来计算，导致空白的出现*/
 }
 header .startProject {
   color: rgb(254,209,54);
@@ -103,11 +105,6 @@ nav>ul>li>a:hover {
   font-size: 70px;
 }
 /*main下的第一块*/
-.servicesContent {
-  width: 1250px;
-  margin: 80px auto;
-  text-align: center;
-}
 .servicesContent i.iconfont {
   display: inline-block;
   font-size: 70px;
@@ -146,12 +143,7 @@ nav>ul>li>a:hover {
 }
 /*main下的第二块*/
 .portfolio {
-  height: 1230px;
   background: #f7f7f7;
-}
-.portfolioContent {
-  width: 1200px;
-  margin: 80px auto;
 }
 .portfolioContent img {
   width: 100%;
@@ -196,10 +188,6 @@ nav>ul>li>a:hover {
   color: #666;
 }
 /*mian下的第三块*/
-.aboutContent {
-  /* width: 1250px; */
-  margin: 80px auto;
-}
 .words {
   line-height:2;
   height:180px;
@@ -210,7 +198,6 @@ nav>ul>li>a:hover {
 .leftWords {
   width: 380px;
   text-align: right;
-
 }
 .rightWords {
   width: 380px;
@@ -221,10 +208,10 @@ nav>ul>li>a:hover {
   margin: 0 auto 20px;
   background: yellow;
 }
-.aboutContent>div:nth-child(odd)>div {
+.aboutContent>div:nth-child(odd)>* {
   float: left;
 }
-.aboutContent>div:nth-child(even)>div {
+.aboutContent>div:nth-child(even)>* {
   float: right;
 }
 .aboutContent>div::after {
@@ -232,17 +219,12 @@ nav>ul>li>a:hover {
   display: block;
   clear: both;
 }
-.aboutContent div.img {
-  background: rgba(235,235,235,1);
-  text-align:center;
-  border-radius: 160px;
-  padding: 10px;
-  margin: 0 30px;
-}
 .aboutContent img {
-  height: 160px;
-  width: 160px;
-  border-radius: 160px;
+  height: 180px;
+  width: 180px;
+  border-radius: 180px;
+  border: 5px solid rgba(235,235,235,1);
+  margin: 0 30px;
 }
 /* .aboutContent .2009 ~ div {
    content: "";
