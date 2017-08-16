@@ -214,11 +214,6 @@ nav>ul>li>a:hover {
 .aboutContent>div:nth-child(even)>* {
   float: right;
 }
-.aboutContent>div::after {
-  content: "";
-  display: block;
-  clear: both;
-}
 .aboutContent img {
   height: 180px;
   width: 180px;
