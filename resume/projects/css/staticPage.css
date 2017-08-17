@@ -52,6 +52,11 @@ section>p {
 h1, h2, h3, h4, h5, h6 {
   color: black;
 }
+main section:nth-child(even) {
+  background: #f7f7f7;
+  width: 100%;
+  min-width: 1250px;
+}
 /*-----------------------*/
 
 html, body {
@@ -132,24 +137,24 @@ nav>ul>li>a:hover {
   margin-top: 10px;
 
 }
-.servicesContent::after {
+.services::after {
   content: "";
   display: block;
   clear: both;
 }
-@media (max-width: 1280px) {
-  .servicesContent>div {
+/* @media (max-width: 1280px) {
+  .services>div {
     width: 100%;
     margin: 10px 0;
   }
-  .servicesContent {
+  .services {
   width: 100%;
   }
-}
+  .layout {
+    width: 100vw;
+  }
+} */
 /*main下的第二块*/
-main section:nth-child(2) {
-  background: #f7f7f7;
-}
 .portfolio a {
   display:block;
   width: 100%;
@@ -257,4 +262,33 @@ main section:nth-child(2) {
 .ourAmazingTeam figure img {
   border-radius: 50%;
   margin-bottom: 20px;
+}
+.ourAmazingTeam figure div {
+  margin-top: 10px;
+}
+.ourAmazingTeam figure a {
+  font-size: 20px;
+  width: 40px;
+  height: 40px;
+  color: white;
+  background-color: black;
+  border-radius: 50%;
+  padding: 6px 0;
+  display: inline-block;
+  margin: 0 5px;
+}
+.ourAmazingTeam figure a:hover {
+  background-color: #e8cb4f;
+}
+.ourAmazingTeam + p {
+  width: 750px;
+  margin: 80px auto 0;
+  font-size: 1rem;
+}
+/* aside区块 */
+aside {
+  text-align: center;
+  padding: 40px 0;
+  display: flex;
+  justify-content: space-between;
 }
