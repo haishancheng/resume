@@ -34,7 +34,7 @@ ul {
 }
 body {
   font: 14px/1.5 Arial;
-  color: #444; 
+  color: #666; 
 }
 section {
   text-align: center;
@@ -46,8 +46,11 @@ section>h1 {
 section>p {
   font-style: oblique;
   font-size: 1rem;
-  color: #666;
+  /* color: #666; */
   margin-bottom: 80px;
+}
+h1, h2, h3, h4, h5, h6 {
+  color: black;
 }
 /*-----------------------*/
 
@@ -100,13 +103,14 @@ nav>ul>li>a:hover {
 .headText>h1 {
   font-size: 40px;
   font-style: italic;
+  color: white;
 }
 .headText>p {
   font-weight: bolder;
   font-size: 70px;
 }
 /*main下的第一块*/
-.servicesContent i.iconfont {
+.services i.iconfont {
   display: inline-block;
   font-size: 70px;
   width: 100px;
@@ -116,13 +120,13 @@ nav>ul>li>a:hover {
   border-radius: 50px;
   margin-bottom: 10px;
 }
-.servicesContent>div {
+.services>div {
   float:left;
   width:calc(33.33% - 40px);
   margin: 0 20px;
 
 }
-.servicesContent>div>p {
+.services>div>p {
   color: #666;
   line-height: 1.75;
   margin-top: 10px;
@@ -143,26 +147,26 @@ nav>ul>li>a:hover {
   }
 }
 /*main下的第二块*/
-.portfolio {
+main section:nth-child(2) {
   background: #f7f7f7;
 }
-.portfolioContent a {
+.portfolio a {
   display:block;
   width: 100%;
   height: 250px;
   position: relative;
 }
-.portfolioContent img {
+.portfolio img {
   width: 100%;
   height: 100%;
 }
-.portfolioContent>ul>li {
+.portfolio>ul>li {
   float: left;
   text-align: center;
   margin: 0 15px 30px;
   width: calc(33.33% - 30px);
 }
-.portfolioContent>ul>li>a:hover::before {
+.portfolio>ul>li>a:hover::before {
   content: "+";
   color: white;
   font-size: 100px;
@@ -177,12 +181,12 @@ nav>ul>li>a:hover {
   align-items: center;
   justify-content: center;
 }
-.portfolioContent>ul>li div:last-child {
+.portfolio>ul>li div:last-child {
   font-size: 1rem;
   background: white;
   padding: 20px 0;
 }
-.portfolioContent>ul>li>div>p {
+.portfolio>ul>li>div>p {
   font-style: oblique;
   color: #666;
 }
@@ -202,28 +206,55 @@ nav>ul>li>a:hover {
   width: 380px;
   text-align: left;
 }
-.aboutContent>div {
+.about>div {
   width: 1000px;
-  margin: 0 auto 20px;
-  background: yellow;
+  margin: 0 auto;
 }
-.aboutContent>div:nth-child(odd)>* {
+.about>div:nth-child(odd)>* {
   float: left;
 }
-.aboutContent>div:nth-child(even)>* {
+.about>div:nth-child(even)>* {
   float: right;
 }
-.aboutContent img {
+.about img {
   height: 180px;
   width: 180px;
   border-radius: 180px;
   border: 5px solid rgba(235,235,235,1);
   margin: 0 30px;
 }
-/* .aboutContent .2009 ~ div {
-   content: "";
+.about .humble-begin ~ div::before {
+  content: "";
   display: block;
-  width: 50px;
-  height: 50px;
-  background: green;
-} */
+  height: 100px;
+  width: 2px;
+  margin: 0 auto;
+  background: rgba(235,235,235,1);
+}
+.about .be-part {
+  width: 180px;
+}
+.about .be-part>p {
+  width: 180px;
+  height: 180px;
+  border-radius: 90px;
+  background-color: #fed136;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+  font-size: 25px;
+  font-weight: bolder;
+  color: white;
+  border: 5px solid rgba(235,235,235,1);
+}
+/*mian下的第四块*/
+.ourAmazingTeam figure {
+  float: left;
+  margin: 0 20px;
+  width: calc(33.33% - 40px);
+}
+.ourAmazingTeam figure img {
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
