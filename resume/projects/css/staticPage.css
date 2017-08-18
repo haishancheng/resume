@@ -28,34 +28,29 @@ ul {
 .button:hover {
   background-color: #e8cb4f;
 }
-.layout {
-  width: 1250px;
-  margin: 0 auto;
-}
 body {
   font: 14px/1.5 Arial;
   color: #666; 
 }
-section {
+.container {
+  margin: 0 auto;
+  width: 1250px;
   text-align: center;
+}
+section {
   padding: 150px 0;
 }
-section>h1 {
+section>.container>h1 {
+  color: black;
   font-size: 40px;
 }
-section>p {
+section>.container>p {
   font-style: oblique;
   font-size: 1rem;
-  /* color: #666; */
   margin-bottom: 80px;
 }
-h1, h2, h3, h4, h5, h6 {
-  color: black;
-}
-main section:nth-child(even) {
+.bg-grey {
   background: #f7f7f7;
-  width: 100%;
-  min-width: 1250px;
 }
 /*-----------------------*/
 
@@ -63,41 +58,39 @@ html, body {
   height: 100%;
 }
 header {
+  position: relative;
+  min-width: 1250px;/*这个及其重要，可以解决，某些部分设置了固定宽度，当你缩小窗口导致把页面撑开，出现了滚动条，同时width100%的计算参考是浏览器当前的宽度来计算，导致空白的出现*/
   height: 100%;
-  background-image: url(../picture/header-bg.jpg);
+  padding-top: 35px;
+  padding-left: 35px;
+  background-image: url(https://github.com/haishancheng/resume/blob/master/resume/projects/picture/header-bg.jpg?raw=true);
   background-repeat: no-repeat; 
   background-size: cover;
   overflow: hidden;/* 生成BFC */
-  min-width: 1250px;/*这个及其重要，可以解决，某些部分设置了固定宽度，当你缩小窗口导致把页面撑开，出现了滚动条，同时width100%的计算参考是浏览器当前的宽度来计算，导致空白的出现*/
-  position: relative;
 }
-header .startProject {
-  color: rgb(254,209,54);
-  font-size: 27px;
+
+header nav .navbar-left {
   float: left;
+  font-size: 27px;
+  color: #fed136;
 }
-nav {
-  margin: 35px 0 0 15px;
-}
-nav>ul {
-  width: 500px;
-  margin: 0 auto;
+header nav>ul {
   position: relative;
   top: 10px;
-
+  width: 500px;
+  margin: 0 auto;
 }
-nav>ul>li {
-  list-style: none;
+header nav>ul>li {
   float: left;
   margin-left: 30px;
 }
-nav>ul>li>a {
+header nav>ul a {
   color: white;
 }
-nav>ul>li>a:hover {
-  color: rgb(254,209,54);
+header nav>ul a:hover {
+  color: #fed136;
 }
-.headText {
+header .title {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -105,42 +98,38 @@ nav>ul>li>a:hover {
   color: white;
   text-align: center;
 }
-.headText>h1 {
+header .title>h1 {
   font-size: 40px;
   font-style: italic;
   color: white;
 }
-.headText>p {
+header .title>p {
   font-weight: bolder;
   font-size: 70px;
 }
-/*main下的第一块*/
-.services i.iconfont {
+/* section one：service */
+.services>div {
+  float: left;
+  width: calc(33.33% - 40px);
+  margin: 0 20px;
+}
+.services>div>h3 {
+  color: black;
+}
+.services>div>p {
+  line-height: 1.75;
+  margin-top: 10px;
+}
+.services>div>i {
   display: inline-block;
-  font-size: 70px;
   width: 100px;
   height: 100px;
+  font-size: 60px;
+  line-height: 100px;
   color: white;
   background: #fed136;
   border-radius: 50px;
   margin-bottom: 10px;
-}
-.services>div {
-  float:left;
-  width:calc(33.33% - 40px);
-  margin: 0 20px;
-
-}
-.services>div>p {
-  color: #666;
-  line-height: 1.75;
-  margin-top: 10px;
-
-}
-.services::after {
-  content: "";
-  display: block;
-  clear: both;
 }
 @media (max-width: 1280px) {
   .services>div {
@@ -148,7 +137,14 @@ nav>ul>li>a:hover {
     margin: 10px 0;
   }
 }
-/*main下的第二块*/
+/* section two：portfolio */
+.portfolio>ul>li {
+  float: left;
+  text-align: center;
+  margin: 0 15px 30px;
+  width: calc(33.33% - 30px);
+}
+
 .portfolio a {
   display:block;
   width: 100%;
@@ -159,55 +155,51 @@ nav>ul>li>a:hover {
   width: 100%;
   height: 100%;
 }
-.portfolio>ul>li {
-  float: left;
-  text-align: center;
-  margin: 0 15px 30px;
-  width: calc(33.33% - 30px);
-}
 .portfolio>ul>li>a:hover::before {
   content: "+";
-  color: white;
-  font-size: 100px;
-  display: block;
-  background: rgba(254, 209, 54, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  color: white;
+  font-size: 100px;
+  background: rgba(254, 209, 54, 0.8);
 }
-.portfolio>ul>li div:last-child {
-  font-size: 1rem;
+.portfolio h3 {
+  font-size: 20px;
+  color: black;
   background: white;
-  padding: 20px 0;
+  padding: 20px 0 5px;
 }
-.portfolio>ul>li>div>p {
+.portfolio p {
+  font-size: 1rem;
   font-style: oblique;
   color: #666;
+  background: white;
+  padding: 0 0 20px;
 }
-/*mian下的第三块*/
-.words {
-  line-height:2;
-  height:180px;
-}
-.words>p {
-  color: #666;
-}
-.leftWords {
-  width: 380px;
-  text-align: right;
-}
-.rightWords {
-  width: 380px;
-  text-align: left;
-}
+/* section three：about */
 .about>div {
   width: 1000px;
   margin: 0 auto;
+}
+.about .about-words {
+  line-height:2;
+  height:180px;
+  width: 380px;
+}
+.about .about-words h3 {
+  color: black;
+}
+.about>div:nth-child(odd) .about-words {
+  text-align: right;
+}
+.about>div:nth-child(even) .about-words {
+  text-align: left;
 }
 .about>div:nth-child(odd)>* {
   float: left;
@@ -219,62 +211,62 @@ nav>ul>li>a:hover {
   height: 180px;
   width: 180px;
   border-radius: 180px;
-  border: 5px solid rgba(235,235,235,1);
+  border: 5px solid rgb(235,235,235);
   margin: 0 30px;
 }
-.about .humble-begin ~ div::before {
+.about>div:first-child ~ div::before {
   content: "";
   display: block;
   height: 100px;
   width: 2px;
   margin: 0 auto;
-  background: rgba(235,235,235,1);
+  background: rgb(235,235,235);
 }
 .about .be-part {
   width: 180px;
 }
 .about .be-part>p {
-  width: 180px;
-  height: 180px;
-  border-radius: 90px;
-  background-color: #fed136;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 180px;
+  height: 180px;
+  border-radius: 90px;
+  border: 5px solid rgba(235,235,235,1);
   padding: 0 20px;
+  background-color: #fed136;
   font-size: 25px;
   font-weight: bolder;
   color: white;
-  border: 5px solid rgba(235,235,235,1);
 }
-/*mian下的第四块*/
-.ourAmazingTeam figure {
+/* section four：team */
+.team figure {
   float: left;
   margin: 0 20px;
   width: calc(33.33% - 40px);
 }
-.ourAmazingTeam figure img {
+.team figure img {
   border-radius: 50%;
   margin-bottom: 20px;
 }
-.ourAmazingTeam figure div {
+.team figure div {
   margin-top: 10px;
 }
-.ourAmazingTeam figure a {
-  font-size: 20px;
+.three-icon a {
+  display: inline-block;
+  margin: 0 5px;
   width: 40px;
   height: 40px;
   color: white;
+  font-size: 20px;
+  line-height: 40px;
   background-color: black;
   border-radius: 50%;
-  padding: 6px 0;
-  display: inline-block;
-  margin: 0 5px;
 }
-.ourAmazingTeam figure a:hover {
+.three-icon a:hover {
   background-color: #e8cb4f;
 }
-.ourAmazingTeam + p {
+.team + p {
   width: 750px;
   margin: 80px auto 0;
   font-size: 1rem;
@@ -286,14 +278,11 @@ aside {
   display: flex;
   justify-content: space-between;
 }
-/* main下的contactUs区块 */
+/* section five：contact*/
 main section:last-child {
-  background-image: url(../picture/contact_bg.jpg);
+  background-image: url(https://github.com/haishancheng/resume/blob/master/resume/projects/picture/contact_bg.jpg?raw=true);
   background-repeat: no-repeat;
   background-size: cover;
-}
-main section:last-child>h1 {
-  color: white;
 }
 .contact > div {
   float: left;
@@ -305,14 +294,28 @@ main section:last-child>h1 {
   width: 100%;
   height: 60px;
   margin-bottom: 20px;
-  border-radius: 10px;
   padding: 20px;
+  border-radius: 10px;
   border: 1px solid #ccc;
 }
 .contact .message textarea {
   height: 220px;
   width: 100%;
-  border-radius: 10px;
   padding: 20px;
+  border-radius: 10px;
   border: 1px solid #ccc;
+}
+/* footer */
+footer > * {
+  float: left;
+  margin: 30px;
+  width: calc(33.33% - 60px);
+  line-height: 40px;
+}
+footer > .moreinfo a{
+  color: #fed136;
+  margin-right: 20px;
+}
+footer > .moreinfo a:hover {
+  text-decoration: underline;
 }
