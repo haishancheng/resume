@@ -142,18 +142,12 @@ nav>ul>li>a:hover {
   display: block;
   clear: both;
 }
-/* @media (max-width: 1280px) {
+@media (max-width: 1280px) {
   .services>div {
     width: 100%;
     margin: 10px 0;
   }
-  .services {
-  width: 100%;
-  }
-  .layout {
-    width: 100vw;
-  }
-} */
+}
 /*main下的第二块*/
 .portfolio a {
   display:block;
@@ -291,4 +285,34 @@ aside {
   padding: 40px 0;
   display: flex;
   justify-content: space-between;
+}
+/* main下的contactUs区块 */
+main section:last-child {
+  background-image: url(../picture/contact_bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+main section:last-child>h1 {
+  color: white;
+}
+.contact > div {
+  float: left;
+  margin: 0 10px;
+  width: calc(50% - 20px);
+}
+.contact .info input {
+  display: block;
+  width: 100%;
+  height: 60px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+.contact .message textarea {
+  height: 220px;
+  width: 100%;
+  border-radius: 10px;
+  padding: 20px;
+  border: 1px solid #ccc;
 }
