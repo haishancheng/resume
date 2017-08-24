@@ -51,6 +51,7 @@ section>.container>p {
 }
 .bg-grey {
   background: #f7f7f7;
+  min-width: 1250px;
 }
 /*-----------------------*/
 
