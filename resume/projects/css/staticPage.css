@@ -63,7 +63,8 @@ header {
   height: 100%;
   padding-top: 35px;
   padding-left: 35px;
-  background-image: url(https://github.com/haishancheng/resume/blob/master/resume/projects/picture/header-bg.jpg?raw=true);
+  /* background-image: url(https://github.com/haishancheng/resume/blob/master/resume/projects/picture/header-bg.jpg?raw=true); */
+  background-image: url(https://github.com/haishancheng/resume/blob/master/resume/projects/picture/header_bg.jpg?raw=true);
   background-repeat: no-repeat; 
   background-size: cover;
   overflow: hidden;/* 生成BFC */
