@@ -65,7 +65,7 @@ header {
   padding-top: 35px;
   padding-left: 35px;
   /* background-image: url(https://github.com/haishancheng/resume/blob/master/resume/projects/picture/header-bg.jpg?raw=true); */
-  background-image: url(https://github.com/haishancheng/resume/blob/master/resume/projects/picture/header_bg.jpg?raw=true);
+  background-image: url(https://github.com/haishancheng/resume/blob/master/resume/projects/HTML+CSS%E5%AE%9E%E7%8E%B0%E9%9D%99%E6%80%81%E9%A1%B5%E9%9D%A2/picture/header_bg.jpg?raw=true);
   background-repeat: no-repeat; 
   background-size: cover;
   overflow: hidden;/* 生成BFC */
@@ -282,7 +282,7 @@ aside {
 }
 /* section five：contact*/
 main section:last-child {
-  background-image: url(https://github.com/haishancheng/resume/blob/master/resume/projects/picture/contact_bg.jpg?raw=true);
+  background-image: url(https://github.com/haishancheng/resume/blob/master/resume/projects/HTML+CSS%E5%AE%9E%E7%8E%B0%E9%9D%99%E6%80%81%E9%A1%B5%E9%9D%A2/picture/contact_bg.jpg?raw=true);
   background-repeat: no-repeat;
   background-size: cover;
 }
