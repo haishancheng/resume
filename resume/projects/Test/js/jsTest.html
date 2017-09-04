@@ -1,0 +1,22 @@
+<script>
+    function friendlyDate(time){
+        var intervalTime = Math.abs(Date.now() - time)
+        if(intervalTime < 1*60*1000){
+            return '刚刚'
+        } else if(1*60*1000 <= intervalTime && intervalTime < 1*60*60*1000){
+            return Math.floor(intervalTime/1000/60) + '分钟前'
+        } else if(1*60*60*1000 <= intervalTime && intervalTime < 24*1*60*60*1000){
+            return Math.floor(intervalTime/1000/60/60) + '小时前'
+        } else if(24*1*60*60*1000 <= intervalTime && intervalTime < 30*24*1*60*60*1000){
+            return Math.floor(intervalTime/1000/60/60/24) + '天前'
+        } else if(30*24*1*60*60*1000 <= intervalTime && intervalTime < 12*30*24*1*60*60*1000){
+            return Math.floor(intervalTime/1000/60/60/24/30) + '个月前'
+        } else if(12*30*24*1*60*60*1000 <= intervalTime ){
+            return Math.floor(intervalTime/1000/60/60/24/30/12) + '年前'
+        }
+    }
+    var str = friendlyDate(Date.now()) //  1分钟前
+    var str2 = friendlyDate('1483941245793') //4天前
+    console.log(str)
+    console.log(str2)
+</script>

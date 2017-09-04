@@ -1,0 +1,14 @@
+<script>
+    function find(arr, fn){
+        var result;
+        for (var i = 0; i < arr.length; i++){
+            if(fn(arr[i])){
+                result = arr[i]
+                break
+            }
+        }
+        return result
+    }
+    var even = find([1, 2, 3, 4, 5, 6], function(val){return val % 2 == 0})
+    console.log(even)
+</script>

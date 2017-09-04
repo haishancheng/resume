@@ -1,0 +1,10 @@
+<script>
+    function map(arr, fn){
+        var arr2 = []
+        arr.forEach(function(element){
+            arr2.push(fn(element))
+        })
+        return arr2
+    }
+    map([1, 2, 3], function(val){return val * 3}) //[3, 6, 9]
+</script>
