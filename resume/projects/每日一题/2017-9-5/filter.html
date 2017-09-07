@@ -1,0 +1,13 @@
+<script>
+    function filter(arr, fn){
+        var arr2 = []
+        arr.forEach(function(val, i, array){
+            if(fn(val)){
+                arr2.push(val)
+            }
+        })
+        return arr2
+    }
+    var evens = filter([1, 2, 3, 4, 5, 6], function(val){ return val % 2 == 0})
+    console.log(evens)
+</script>

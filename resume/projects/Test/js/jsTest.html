@@ -1,22 +1,38 @@
 <script>
-    function friendlyDate(time){
-        var intervalTime = Math.abs(Date.now() - time)
-        if(intervalTime < 1*60*1000){
-            return '刚刚'
-        } else if(1*60*1000 <= intervalTime && intervalTime < 1*60*60*1000){
-            return Math.floor(intervalTime/1000/60) + '分钟前'
-        } else if(1*60*60*1000 <= intervalTime && intervalTime < 24*1*60*60*1000){
-            return Math.floor(intervalTime/1000/60/60) + '小时前'
-        } else if(24*1*60*60*1000 <= intervalTime && intervalTime < 30*24*1*60*60*1000){
-            return Math.floor(intervalTime/1000/60/60/24) + '天前'
-        } else if(30*24*1*60*60*1000 <= intervalTime && intervalTime < 12*30*24*1*60*60*1000){
-            return Math.floor(intervalTime/1000/60/60/24/30) + '个月前'
-        } else if(12*30*24*1*60*60*1000 <= intervalTime ){
-            return Math.floor(intervalTime/1000/60/60/24/30/12) + '年前'
-        }
+    // function friendlyDate(time){
+    //     var intervalTime = Math.abs(Date.now() - time)
+    //     if(intervalTime < 1*60*1000){
+    //         return '刚刚'
+    //     } else if(1*60*1000 <= intervalTime && intervalTime < 1*60*60*1000){
+    //         return Math.floor(intervalTime/1000/60) + '分钟前'
+    //     } else if(1*60*60*1000 <= intervalTime && intervalTime < 24*1*60*60*1000){
+    //         return Math.floor(intervalTime/1000/60/60) + '小时前'
+    //     } else if(24*1*60*60*1000 <= intervalTime && intervalTime < 30*24*1*60*60*1000){
+    //         return Math.floor(intervalTime/1000/60/60/24) + '天前'
+    //     } else if(30*24*1*60*60*1000 <= intervalTime && intervalTime < 12*30*24*1*60*60*1000){
+    //         return Math.floor(intervalTime/1000/60/60/24/30) + '个月前'
+    //     } else if(12*30*24*1*60*60*1000 <= intervalTime ){
+    //         return Math.floor(intervalTime/1000/60/60/24/30/12) + '年前'
+    //     }
+    // }
+    // var str = friendlyDate(Date.now()) //  1分钟前
+    // var str2 = friendlyDate('1483941245793') //4天前
+    // console.log(str)
+    // console.log(str2)
+    //-------------------------------------------------------------------------------------------------------------------
+    // function isEmail(str){
+    //     str.replace(/^\s+|\s+$/g, '')
+    //     return str.match(/^\s*[\w\.\-]+@[\w\.\-]+\.[a-zA-Z]{2,4}\s*$/g) === null ? '错误的邮箱格式' : '正确的邮箱格式'
+    // }
+    // var result = isEmail(' wangt.xxx@haishancheng.cn.com ')
+    // console.log(result)
+    //-------------------------------------------------------------------------------------------------------------------
+    function isPhoneNum(str){
+        return str.match(/^1[34578]\d{9}$/g) === null ? '错误的手机号码格式' : '正确的手机号码格式'
     }
-    var str = friendlyDate(Date.now()) //  1分钟前
-    var str2 = friendlyDate('1483941245793') //4天前
-    console.log(str)
-    console.log(str2)
+    var result = isPhoneNum('11111111111')
+    var result1 = isPhoneNum('15507621888')
+    var result2 = isPhoneNum('gadgadsgdasg')
+    console.log(result + '\n' + result1 + '\n' + result2)
+    
 </script>

@@ -1,0 +1,3 @@
+实现一个filter函数，模拟原生的filter函数，filter(list, predicate)。
+遍历list中的每个值，返回所有通过predicate真值检测的元素所组成的数组。
+ex：见图片
