@@ -1,0 +1,33 @@
+@charset "utf-8";
+/* css reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a {
+    text-decoration: none;
+}
+
+html, body, main {
+    height: 100%;
+}
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+header .login{
+    font-size: 30px;
+    color: #444;
+    float: right;
+    margin-right: 20px;
+}
+
+main {
+    background: linear-gradient(to top right, rgba(38,50,105,0.78), rgba(255,152,0,0.45)), url(./1.jpg) center center no-repeat;
+    background-size: cover;
+}
