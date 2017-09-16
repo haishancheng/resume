@@ -1,3 +1,5 @@
-1.浮动元素设置table-cell好像无效
+﻿1.浮动元素设置table-cell好像无效
 2.浮动元素设置inline-block？？？
 http://learngitbranching.js.org/?demo
+
+2.简单的事件解耦http://js.jirengu.com/binup/1/edit?html,js,output

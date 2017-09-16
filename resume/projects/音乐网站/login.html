@@ -4,13 +4,36 @@
     <meta charset="UTF-8">
     <title>海山城音乐</title>
     <link rel="stylesheet" href="https://unpkg.com/font-awesome@4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="./login.css"> 
+    <link rel="stylesheet" href="./login.css">
+    <script type="text/javascript" src="./login.js" async="async"></script> 
 </head>
 <body>
     <header>
         <a class="login" href="#"><i class="fa fa-user-circle"></i></a>
     </header>
     <main>
+        <div class="modal login-modal">
+            <div class="tabs">
+                <a href="#" class="underline">登录</a>
+                <a href="#">注册</a>
+            </div>
+            <div class="content">
+                <div class="errmsg"></div>
+                <form action="./loginResult.html" method="post">
+                    <div class="input-field">
+                        <i class="fa fa-user-o"></i>
+                        <input type="text" name="username" placeholder="用户名">
+                    </div>
+                    <div class="input-field">
+                        <i class="fa fa-lock"></i>
+                        <input type="text" name="password" placeholder="密码">
+                    </div>
+                    <div class="input-field">
+                        <input type="submit" value="登录">
+                    </div>
+                </form>
+            </div>
+        </div>
     </main>
 </body>
 </html>
