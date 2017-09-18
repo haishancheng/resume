@@ -29,7 +29,7 @@ header {
     right: 0;
 }
 
-header .login{
+header .login-bar{
     font-size: 30px;
     float: right;
     margin-right: 20px;
@@ -58,6 +58,7 @@ main {
     position: absolute;
     right: 10px;
     top: 7px;
+    cursor: pointer;/* 鼠标放上去显示a连接的效果*/
 }
 
 .modal .tabs {
@@ -98,6 +99,7 @@ main {
     background-color: white;
     padding: 5px 10px;
     border: 1px solid #999;
+    border-radius: 5px;
 }
 
 .modal.login-modal {
