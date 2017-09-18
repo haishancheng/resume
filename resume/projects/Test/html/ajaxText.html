@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ajaxTest</title>
+</head>
+<body>
+  <script>
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', '/ajaxHello.json', true)//true是异步,第二个参数必须以http开头，file不行，因此需要http-server打开
+    xhr.send()
+    xhr.addEventListener('readystatechange', function(){
+      console.log('readyStatue:', xhr.readyState)
+    })
+
+    xhr.addEventListener('load', function(){//load在内部数据到达后会触发
+      if((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304){//304是表示缓存
+        var data = xhr.responseText//异步需要加上监听，因为数据可能还未获取到，同步可以直接输出responseText
+        console.log(data)
+      }else{
+        console.log("error")
+      }
+    })
+    xhr.onerror = function(){
+      console.log('error')
+    }//连接失败，比如断网
+
+
+
+    xhr.open('GET', '/login?username=hellow&password=123', true)
+    xhr.send()
+
+    xhr.open('post', '/login', true)
+    xhr.send('username=hellow&password=123')
+
+  </script>
+</body>
+</html>

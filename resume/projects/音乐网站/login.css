@@ -40,14 +40,24 @@ main {
     background-size: cover;
 }
 
+.container {
+    display: none;
+}
+
 .modal{
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
     width: 400px;
-    background-color: white;
-    display: none;
+    background-color: #ccc;
+    box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.2);
+    border-radius: 10px;
+}
+
+.modal .close {
+    position: absolute;
+    right: 10px;
+    top: 7px;
 }
 
 .modal .tabs {
@@ -90,5 +100,24 @@ main {
     border: 1px solid #999;
 }
 
+.modal.login-modal {
+    transform: translate(-50%,-50%) rotateY(0deg);
+}
 
+.modal.register-modal  {
+    transform: translate(-50%,-50%) rotateY(180deg);
+    backface-visibility: hidden; 
+    
+}
+
+.modal.login-modal.flip{
+    transform: translate(-50%,-50%) rotateY(180deg)!important;
+    backface-visibility: hidden; 
+    transition-duration: 1s;
+}
+.modal.register-modal.flip{
+    transform: translate(-50%,-50%) rotateY(0deg)!important;
+    backface-visibility: hidden; 
+    transition-duration: 1s;
+}
 

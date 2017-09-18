@@ -12,26 +12,56 @@
         <a class="login" href="#"><i class="fa fa-user-circle"></i></a>
     </header>
     <main>
-        <div class="modal login-modal">
-            <div class="tabs">
-                <a href="#" class="underline">登录</a>
-                <a href="#">注册</a>
+        <div class="container">
+            <div class="modal login-modal">
+                <a href="" class="close"><i class="fa fa-times"></i></a>
+                <div class="tabs">
+                    <a class="login underline" href="#">登录</a>
+                    <a class="register" href="#">注册</a>
+                </div>
+                <div class="content">
+                    <div class="errmsg"></div>
+                    <form action="./loginResult.html" method="post">
+                        <div class="input-field">
+                            <i class="fa fa-user-o"></i>
+                            <input type="text" name="username" placeholder="用户名">
+                        </div>
+                        <div class="input-field">
+                            <i class="fa fa-lock"></i>
+                            <input type="text" name="password" placeholder="密码">
+                        </div>
+                        <div class="input-field">
+                            <input type="submit" value="登录">
+                        </div>
+                    </form>
+                </div>
             </div>
-            <div class="content">
-                <div class="errmsg"></div>
-                <form action="./loginResult.html" method="post">
-                    <div class="input-field">
-                        <i class="fa fa-user-o"></i>
-                        <input type="text" name="username" placeholder="用户名">
-                    </div>
-                    <div class="input-field">
-                        <i class="fa fa-lock"></i>
-                        <input type="text" name="password" placeholder="密码">
-                    </div>
-                    <div class="input-field">
-                        <input type="submit" value="登录">
-                    </div>
-                </form>
+            <div class="modal register-modal">
+                <a href="" class="close"><i class="fa fa-times"></i></a>
+                <div class="tabs">
+                    <a class="login" href="#">登录</a>
+                    <a class="register underline" href="#">注册</a>
+                </div>
+                <div class="content">
+                    <div class="errmsg"></div>
+                    <form action="./loginResult.html" method="post">
+                        <div class="input-field">
+                            <i class="fa fa-user-o"></i>
+                            <input type="text" name="username" placeholder="输入用户名">
+                        </div>
+                        <div class="input-field">
+                            <i class="fa fa-lock"></i>
+                            <input type="text" name="password" placeholder="输入密码">
+                        </div>
+                        <div class="input-field">
+                            <i class="fa fa-lock"></i>
+                            <input type="text" name="confrim" placeholder="再次输入密码">
+                        </div>
+                        <div class="input-field">
+                            <input type="submit" value="注册">
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </main>
