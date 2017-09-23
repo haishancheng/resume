@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ajax</title>
+</head>
+<body>
+  <script>
+    var xhr = new XMLHttpRequest()
+    xhr.open('GET', '/ajaxHello.json', /* false */ true)
+    xhr.send()
+    // var data = xhr.responseText
+    // console.log(data)//这样写，同步执行(false)才能看到结果，否则数据还没到来代码已经执行完毕，导致没得结果
+
+  //   xhr.addEventListener('load', function(){
+  //     var data = xhr.responseText
+  //     console.log(data)//异步的话需要一个load监听事件，请求数据到来时在执行输出代码
+  //     console.log(xhr.status)
+  // })
+
+  xhr.addEventListener('load', function(){
+    if((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304){//304表示的请求的是缓存返回的状态
+      var data = xhr.responseText
+      console.log(data)
+      console.log(xhr.status)
+    } else {
+      console.log('error')
+    }
+  })
+  xhr.onerror = function(){//比如说网络断的情况下，数据都还没到达服务器，没有状态吗返回。这个时候时onerror
+    console.log('连接失败')
+  }
+
+  xhr.ontimeout = function(e) { 
+        console.log('请求超时')
+  }
+
+  xhr.upload.onprogress = function(e) {
+      //如果是上传文件，可以获取上传进度
+  }
+
+  xhr.addEventListener('readystatechange', function(){
+    console.log('readyState:',xhr.readyState)//查一下readyState的1,2,3,4代表的具体含义
+  })
+  </script>
+</body>
+</html>
