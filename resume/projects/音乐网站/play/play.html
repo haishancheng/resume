@@ -3,8 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <title>play</title>
+  <link rel="stylesheet" href="https://unpkg.com/font-awesome@4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="./play.css">
+  <script type="text/javascript" src="./play.js" async="async"></script> 
 </head>
 <body>
-  
+  <!-- <audio id="music" src="./小幸运.mp3">你的浏览器不支持</audio> -->
+  <div class="cover"></div>
+  <div class="musicbox">
+    <div class="musicpanel clearfix">
+      <i class="fa fa-step-backward"></i>
+      <!-- <i class="fa fa-play"></i> -->
+      <i class="fa fa-pause"></i>
+      <i class="fa fa-step-forward"></i>
+      <p class="song">海山城音乐</p>
+      <p class="author">海山城</p>
+    </div>
+    <div class="music-progress clearfix">
+      <div class="bar">
+        <div class="progress-total"></div>
+        <div class="progress-current"></div>
+      </div>
+      <div class="time">00:00</div>
+    </div>
+  </div>
+
 </body>
 </html>
