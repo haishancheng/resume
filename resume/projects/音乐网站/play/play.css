@@ -66,9 +66,8 @@ html, body {
 }
 .music-progress .progress-current{
   position: absolute;
-  border: 1.5px solid #f08985;
+  border-top: 3px solid #f08985;
   top: 0;
-  width: 50%;
   cursor: pointer;
 }
 .music-progress .time{
