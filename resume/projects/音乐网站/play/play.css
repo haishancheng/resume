@@ -9,6 +9,8 @@ ul {
 }
 html, body {
   height: 100%;
+  position: relative;
+  min-width: 1000px;
 }
 .clearfix::after{
   content:"";
@@ -20,9 +22,34 @@ html, body {
   height: 100%;
   background: linear-gradient(to top right, rgba(38,50,105,0.78), rgba(255,152,0,0.45)), url(http://ows8007dt.bkt.clouddn.com/cover.jpg) center center no-repeat;
   background-size: cover;
+  /* filter: blur(0px); */
+  /* background: url(http://ows8007dt.bkt.clouddn.com/cover.jpg)  center center no-repeat; */
+}
+.fa-bars{
+  float: right;
+  font-size: 35px;
+  color: rgb(36, 116, 186);
+  margin: 20px 50px 0 0;
+  cursor: pointer;
+}
+.music-list{
+  float: right;
+  clear: right;
+  width: 300px;
+  margin-top: 50px;
+  opacity: 0;
+  display: none;
+  transition-duration:2s;
+}
+.display-music-list{
+  opacity: 1;
+}
+.music-list > li{
+  font-size: 100px;
+  padding: 10px 0;
 }
 .musicbox{
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
