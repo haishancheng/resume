@@ -105,3 +105,16 @@ function setPlayIcon(){
     $('.musicpanel i:nth-child(2)').classList.add('fa-pause')
   }
 }
+
+//点击音乐列表按钮出现音乐列表
+$('.fa-bars').onclick = function(){
+  if($('.music-list').classList.contains('display-music-list')){
+    $('.music-list').style.display = 'none'
+    $('.music-list').classList.remove('display-music-list')
+  }else{
+    $('.music-list').style.display = 'block'
+    requestAnimationFrame(function(){
+      $('.music-list').classList.add('display-music-list')
+    })
+  }
+}
