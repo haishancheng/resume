@@ -35,23 +35,31 @@ function loadMusic(musicObj){
   $('.musicpanel .author').innerText = musicObj.auther
 }
 
-//执行getMuscic,获取到music.json中返回的数据。其实可以直接先发ajax，然后在ajax的成功的逻辑中赋值
+//设置musicList的内容
+function setMusticListContent(){
+  var fragment = document.createDocumentFragment() 
+  for(var i = 0; i < musicList.length; i++){
+    var musicLi = document.createElement('li')
+    musicLi.innerText = musicList[i].title + '-' + musicList[i].auther
+    fragment.appendChild(musicLi)
+  }
+  $('.music-list').appendChild(fragment)
+}
+
+//执行getMuscic,获取到music.json中返回的数据,后面的操作都需要这里面的数据。其实可以直接先发ajax，然后在ajax的成功的逻辑中赋值
 getMusic(function(resMusicObj){
   musicList = resMusicObj
   loadMusic(musicList[currentIndex])
   audioObject.pause()//首次加载页面暂停
+  setMusticListContent() //首次加载获取到所有数据并填充到ul的li中
 })
 
 //播放按钮绑定事件
 $('.musicpanel .fa-play').onclick = function(){
   if(audioObject.paused){
     audioObject.play()
-    this.classList.remove('fa-play')
-    this.classList.add('fa-pause')
   }else{
     audioObject.pause()
-    this.classList.remove('fa-pause')
-    this.classList.add('fa-play')
   }
 }
 //进度条以及时间的展示,由于ontimeupdate事件触发不均匀，导致时间变化不均匀，因此可以用下面的setInterval来实现均匀的
@@ -64,6 +72,14 @@ audioObject.ontimeupdate = function(){
 }
 //音乐播放，通过setInterval，每一秒更新一下时间
   audioObject.onplay = function(){
+    //每次音乐播放之前先把不是选中的音乐的li的选中背景色删掉
+    for(var i = 1; i <= musicList.length; i++) {
+      if($(`.music-list li:nth-child(${i})`).classList.contains('music-choose')){
+        $(`.music-list li:nth-child(${i})`).classList.remove('music-choose')
+      }
+    }
+    //然后在添加选中背景到相应的li
+    $(`.music-list li:nth-child(${currentIndex + 1})`).classList.add('music-choose')
     setPlayIcon()
     clock = setInterval(function(){
       var min = Math.floor(audioObject.currentTime / 60)
@@ -86,12 +102,12 @@ $('.music-progress .bar').onclick = function(e){
 }
 
 //点击播放下一曲按钮，播放下一曲
-$('.musicpanel .fa-step-forward').onclick =function(){
+$('.musicpanel .fa-step-forward').onclick = function(){
   currentIndex = (++currentIndex) % musicList.length
   loadMusic(musicList[currentIndex]) 
 }
 //点击播放上一曲按钮，播放上一曲
-$('.musicpanel .fa-step-backward').onclick =function(){
+$('.musicpanel .fa-step-backward').onclick = function(){
   currentIndex = (musicList.length + --currentIndex) % musicList.length
   loadMusic(musicList[currentIndex])
 }
@@ -118,3 +134,14 @@ $('.fa-bars').onclick = function(){
     })
   }
 }
+
+//点击音乐列表中的对应项，播放相应音乐，事件代理实现
+$('.music-list').addEventListener('click', function(e){
+  var liList = $$('.music-list > li')
+  for(var i = 0; i < liList.length; i++){
+    if(e.target === liList[i]){
+      currentIndex = i
+      loadMusic(musicList[currentIndex])
+    }
+  }
+})
