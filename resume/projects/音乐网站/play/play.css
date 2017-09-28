@@ -10,7 +10,7 @@ ul {
 html, body {
   height: 100%;
   position: relative;
-  min-width: 1000px;
+  min-width: 1200px;
 }
 .clearfix::after{
   content:"";
@@ -33,23 +33,51 @@ html, body {
   cursor: pointer;
 }
 .music-list{
+  position: relative;
+  display: none;
   float: right;
   clear: right;
   width: 300px;
   margin-top: 50px;
+  max-height: calc(100% - 150px);
+  /* margin-right: 20px; */
   opacity: 0;
-  display: none;
   transition-duration:2s;
+  overflow: auto;
+  background: #ccc url(http://ows8007dt.bkt.clouddn.com/music_list_bg.jpg) no-repeat;
+  background-size: cover;
+  border-radius: 10px;
+  box-shadow: 0 0 1px 1px #ccc;
 }
+/* .music-list::before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0,0,0,0.5);
+} 背景遮罩，暂时没必要用*/
+
 .display-music-list{
   opacity: 1;
 }
 .music-list > li{
-  font-size: 100px;
-  padding: 10px 0;
+  font-size: 20px;
+  padding: 20px 20px;
+  color: rgba(38,50,105,0.78);
+  background: rgba(255,255,255,0.6);
+  cursor: pointer;
+  border-bottom: 1px solid;
+  font-family: "楷体", Arial, Helvetica, sans-serif;
+  font-style: oblique;
+}
+.music-list > .music-choose {
+  background: rgba(139, 174, 195, 0.70);
 }
 .musicbox{
-  position: fixed;
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
