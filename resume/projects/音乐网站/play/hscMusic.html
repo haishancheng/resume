@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>海山城音乐台</title>
+</head>
+<body>
+   <script>
+    var channelsList;
+    var songInfo;
+    var audioObject = new Audio()
+    audioObject.autoplay = true
+
+    function getChannels(){
+        var xhr = new XMLHttpRequest()
+        xhr.open('get', 'https://jirenguapi.applinzi.com/fm/getChannels.php', true)
+        xhr.onload = function(){
+            if((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304){
+                // console.log(xhr.responseText)
+                channelsList = JSON.parse(xhr.responseText).channels
+                console.log(channelsList)
+            }else{
+                console.log('获取数据失败')
+            }
+        }
+        xhr.onerror = function(){
+            console.log('网络异常')
+        }
+        xhr.send()
+    }
+    function getSong(callback){
+        // var url = 'https://jirenguapi.applinzi.com/fm/getSong.php?
+        var xhr = new XMLHttpRequest()
+        xhr.open('get', 'https://jirenguapi.applinzi.com/fm/getSong.php?channel=4', true)
+        xhr.onload = function(){
+            if((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304){
+                callback(JSON.parse(xhr.responseText).song)
+            }else{
+                console.log('获取数据失败')
+            }
+        }
+        xhr.onerror = function(){
+            console.log('网络异常')
+        }
+        xhr.send()
+    }
+    // getChannels()
+    getSong(function(resSongInfo){
+        songInfo = resSongInfo
+        audioObject.src =  songInfo[0].url;
+    })
+    </script> 
+</body>
+</html>
