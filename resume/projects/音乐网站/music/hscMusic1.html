@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="referrer" content="no-referrer"> <!-- 百度音乐api的服务器设置了本地服务器无法播放，加入这个才行 -->
     <title>海山城音乐台</title>
 </head>
 <body>
@@ -31,7 +32,7 @@
     function getSong(callback){
         // var url = 'https://jirenguapi.applinzi.com/fm/getSong.php?
         var xhr = new XMLHttpRequest()
-        xhr.open('get', 'https://jirenguapi.applinzi.com/fm/getSong.php?channel=4', true)
+        xhr.open('get', 'https://jirenguapi.applinzi.com/fm/getSong.php?channel=public_yuzhong_hanyu', true)
         xhr.onload = function(){
             if((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304){
                 callback(JSON.parse(xhr.responseText).song)
@@ -44,9 +45,10 @@
         }
         xhr.send()
     }
-    // getChannels()
+    getChannels()
     getSong(function(resSongInfo){
         songInfo = resSongInfo
+        console.log(songInfo)
         audioObject.src =  songInfo[0].url;
     })
     </script> 
