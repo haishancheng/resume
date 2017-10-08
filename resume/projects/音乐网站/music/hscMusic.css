@@ -29,16 +29,54 @@ html, body{
   bottom: 0;
   z-index: -1;
 }
-main{
-  /*padding: 20px 40px 10px;*/
+main .song-pic img{
+  width: 400px;
+  height: 400px;
+
 }
 main .song-show-left{
   float: left;
-  width: 40%;
-  background: yellow;
+  padding: 100px 300px 40px 250px;
+  text-align: center;
+}
+main .song-ctrl .fa{
+  margin: 0 40px;
+  font-size: 40px;
+  color: rgba(203, 203, 203, 0.8);
+  margin-top: 20px;
+  cursor: pointer;
 }
 main .song-show-right{
   float: left;
-  width: 60%;
-  background: blue;
+  padding: 100px 0 80px;
+  /* background: blue; */
+}
+main .song-show-right .song-name{
+  display: inline-block;
+  border-radius: 10px;
+  background: #1B1B9C;
+  padding: 10px 20px;
+  font-size: 30px;
+  color: white;
+  font-family: "楷体", Arial, Helvetica, sans-serif;
+}
+main .song-show-right .lyric{
+  margin-top: 30px;
+  font-size: 40px;
+  color: white;
+  font-family: "楷体", Arial, Helvetica, sans-serif;
+}
+main .song-show-right .song-collect{
+  margin-top: 200px;
+  color: white;
+}
+main .song-show-right .song-collect span{
+  margin-left: 8px;
+  margin-right: 40px;
+  color: #ccc
+}
+main .song-show-right .progress-bar{
+  border-top: 4px solid rgba(203, 203, 203, 0.5);
+  margin-top: 60px;
+  width: 600px;
 }
