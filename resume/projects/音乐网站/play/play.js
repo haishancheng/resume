@@ -145,3 +145,9 @@ $('.music-list').addEventListener('click', function(e){
     }
   }
 })
+
+//播放完毕列表循环
+audioObject.onended = function(){
+  currentIndex = (++currentIndex) % musicList.length
+  loadMusic(musicList[currentIndex]) 
+}
