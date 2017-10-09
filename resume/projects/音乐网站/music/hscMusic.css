@@ -101,7 +101,7 @@ footer{
 }
 footer figure{
   float: left;
-  margin: 50px 80px;
+  margin: 20px 80px 40px;
 }
 footer figure img{
   background: yellow;
