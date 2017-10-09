@@ -11,7 +11,8 @@ html, body{
   height: 100%;
   min-width: 1600px;
   position: relative;
-  color: #a06565;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
 }
 /* common css */
 .clearfix::after{
@@ -21,7 +22,8 @@ html, body{
 }
 /*------*/
 .cover{
-  background: linear-gradient(to top right, rgba(38,50,105,0.78), rgba(255,152,0,0.45)), url(http://ows8007dt.bkt.clouddn.com/cover.jpg) center center no-repeat;
+  filter: blur(3px);
+  background: url(http://ows8007dt.bkt.clouddn.com/cover.jpg) center center no-repeat;
   background-size: cover;
   position: absolute;
   top: 0;
@@ -43,7 +45,6 @@ main .song-show-left .song-pic img{
 main .song-show-left .song-ctrl .fa{
   margin: 0 40px;
   font-size: 40px;
-  color: rgba(203, 203, 203, 0.8);
   margin-top: 20px;
   cursor: pointer;
 }
@@ -54,15 +55,15 @@ main .song-show-right{
 main .song-show-right .album{
   display: inline-block;
   border-radius: 10px;
-  background: #1B1B9C;
+  background: #40409e;
   padding: 10px 20px;
   font-size: 30px;
-  font-family: "楷体", Arial, Helvetica, sans-serif;
+  font-family: "楷体";
 }
 main .song-show-right .lyric{
   margin-top: 30px;
   font-size: 40px;
-  font-family: "楷体", Arial, Helvetica, sans-serif;
+  font-family: "楷体";
 }
 main .song-show-right .song-collect{
   margin-top: 160px;
@@ -70,10 +71,13 @@ main .song-show-right .song-collect{
 main .song-show-right .song-collect span{
   margin-left: 8px;
   margin-right: 40px;
-  color: #ccc
+  color: #999;
+}
+main .song-show-right .song-collect i{
+  color: #524444
 }
 main .song-show-right .progress-bar{
-  border-top: 4px solid rgba(203, 203, 203, 0.5);
+  border-top: 4px solid white;
   margin-top: 60px;
   width: 600px;
   cursor: pointer;
@@ -83,6 +87,5 @@ main .song-show-right .song-name{
   margin-top: 10px;
 }
 main .song-show-right .author{
-  color:#ccc;
   margin-top: 10px;
 }
