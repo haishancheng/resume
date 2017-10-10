@@ -85,10 +85,20 @@ main .song-show-right .progress-bar{
   width: 600px;
   cursor: pointer;
 }
-main .song-show-right .song-name{
+main .song-show-right .time{
+  float: right;
+  color: #b95757;
   font-size: 20px;
   margin-top: 10px;
-  margin-bottom: 10px;
+}
+main .song-show-right .song-name{
+  font-size: 30px;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  font-family: "楷体";
+}
+main .song-show-right .author{
+  font-size: 18px;
 }
 
 footer{
