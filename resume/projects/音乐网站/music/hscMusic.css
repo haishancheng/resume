@@ -72,11 +72,11 @@ main .song-show-right .song-collect{
 main .song-show-right .song-collect span{
   margin-left: 8px;
   margin-right: 40px;
-  color: #666;
+  color: white;
 }
 main .song-show-right .song-collect i{
   font-size: 20px;
-  color: #524444
+  color: #ca8080;
 }
 main .song-show-right .progress-bar{
   border-top: 4px solid rgb(203, 203, 203);
