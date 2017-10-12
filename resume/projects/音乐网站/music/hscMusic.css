@@ -9,6 +9,7 @@ ul{
 }
 html, body{
   height: 100%;
+  width: 100%;
   min-width: 1800px;
   min-height: 900px;
   position: relative;
@@ -53,19 +54,19 @@ main .song-show-right{
   float: left;
   padding: 100px 0 80px;
 }
-main .song-show-right .album-name{
+main .song-show-right .album{
   display: inline-block;
   border-radius: 10px;
-  /* background: #40409e; */
+  box-shadow: 0 0 1px 1px #737171;
   background: #b95757;
   padding: 10px 20px;
   font-size: 30px;
-  font-family: "楷体";
+  font-family: "方正舒体";
 }
 main .song-show-right .lyric{
   margin-top: 30px;
   font-size: 40px;
-  font-family: "楷体";
+  font-family: "方正舒体";
 }
 main .song-show-right .song-collect{
   margin-top: 160px;
@@ -87,7 +88,7 @@ main .song-show-right .progress-bar{
 }
 main .song-show-right .time{
   float: right;
-  color: #b95757;
+  /* color: #b95757; */
   font-size: 20px;
   margin-top: 10px;
 }
@@ -95,10 +96,11 @@ main .song-show-right .song-name{
   font-size: 30px;
   margin-top: 20px;
   margin-bottom: 15px;
-  font-family: "楷体";
+  font-family: "方正舒体";
 }
 main .song-show-right .author{
   font-size: 18px;
+  font-family: "华文新魏";
 }
 
 footer{
@@ -144,10 +146,18 @@ footer .pre-bar-in{
   top: 40%;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px; 
+  transition: all 0.5s ease-out;
 }
 footer .next-bar-in{
   right: 0;
   top: 40%;
   border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px; 
+  border-bottom-left-radius: 10px;
+  transition: all 0.5s ease-out;
+}
+footer .pre-bar-out{
+  transform: translateX(-60px);
+}
+footer .next-bar-out{
+  transform: translateX(60px);
 }

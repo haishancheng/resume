@@ -22,5 +22,18 @@ function getChannels(callback){
     xhr.send()
 }
 getChannels(function(resChannels){
+    for(var i = 0; i < 6; i++){
+        $$('footer figure p')[i].innerText = resChannels[i].name
+        // console.log(resChannels[i].name)
+    }
     console.log(resChannels)
 })
+//最下面的频道导航栏中左右两个按钮的划入，划出效果
+$('footer').onmouseenter = function(){
+    $('footer .pre-bar-in').classList.remove('pre-bar-out')
+    // $('footer .next-bar-in').classList.remove('next-bar-out')
+}
+$('footer').onmouseleave = function(){
+    $('footer .pre-bar-in').classList.add('pre-bar-out')
+    // $('footer .next-bar-in').classList.add('next-bar-out')
+}
