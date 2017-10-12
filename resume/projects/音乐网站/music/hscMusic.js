@@ -90,6 +90,12 @@ audioObject.ontimeupdate = function(){
     $('main .song-show-right .time .current-time').innerText = secToMin(this.currentTime)
     $('main .song-show-right .progress-bar .current-bar').style.width = this.currentTime / this.duration * 100 + '%'
 }
+//点击进度条
+$('main .song-show-right .progress-bar .total-bar').onclick = function(e){
+    var barPercent = e.offsetX / parseInt(getComputedStyle(this).width)
+    $('main .song-show-right .progress-bar .current-bar').style.width = barPercent * 100 + '%'//不乘以100点击的时候进度条会闪一下
+    audioObject.currentTime = barPercent * audioObject.duration
+}
 //播放按钮事件
 $('main .song-show-left .song-ctrl i:nth-child(2)').onclick = function(){
     if(audioObject.paused){
@@ -112,18 +118,14 @@ $('main .song-show-left .song-ctrl .fa-forward').onclick = function(){
         loadSong(resSong)
     })
 }
-
-
-
-
-
-
-
-
-
-
-
-
+//点击收藏按钮变红
+$('main .song-show-left .song-ctrl .fa-heart').onclick = function(){
+    if(window.getComputedStyle(this).color === 'rgb(255, 255, 255)'){
+        this.style.color = '#b95757'
+    }else{
+        this.style.color = 'rgb(255, 255, 255)'
+    }
+}
 
 //最下面的频道导航栏中左右两个按钮的划入，划出效果
 $('footer').onmouseenter = function(){
@@ -133,4 +135,18 @@ $('footer').onmouseenter = function(){
 $('footer').onmouseleave = function(){
     $('footer .pre-bar-in').classList.add('pre-bar-out')
     $('footer .next-bar-in').classList.add('next-bar-out')
+}
+//点击专辑
+$('footer').onclick = function(e){
+    if(e.target.nodeName === 'IMG'){
+        getSong(e.target.getAttribute("channel-id"), function(resSong){
+            channelsList.forEach(function(val, index){
+                // console.log(arguments)
+                if(e.target.getAttribute("channel-id") === val.channel_id){
+                    currentChannelObj = channelsList[index]
+                }
+            })
+            loadSong(resSong)
+        })
+    }
 }

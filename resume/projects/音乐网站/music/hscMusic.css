@@ -82,13 +82,15 @@ main .song-show-right .song-collect i{
 }
 main .song-show-right .progress-bar{
   position: relative;
-  border-top: 4px solid rgb(203, 203, 203);
-  width: 600px;
   cursor: pointer;
+}
+main .song-show-right .progress-bar .total-bar{
+  width: 600px;
+  border-top: 4px solid rgb(203, 203, 203);
 }
 main .song-show-right .progress-bar .current-bar{
   position: absolute;
-  top: -4px;
+  top: 0;
   border-top: 4px solid #b95757;
 }
 main .song-show-right .time{
@@ -128,6 +130,7 @@ footer figure img{
   box-shadow: 0 0 5px 1px #737171;
   cursor: pointer;
   border-radius: 10px;
+  margin-bottom: 15px;
 }
 footer figure img:hover{
   transform: scale(1.2);
