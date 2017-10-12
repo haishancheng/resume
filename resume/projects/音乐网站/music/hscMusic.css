@@ -69,7 +69,7 @@ main .song-show-right .lyric{
   font-family: "方正舒体";
 }
 main .song-show-right .song-collect{
-  margin-top: 160px;
+  margin: 160px 0 60px;
 }
 main .song-show-right .song-collect span{
   margin-left: 8px;
@@ -81,10 +81,15 @@ main .song-show-right .song-collect i{
   color: #b95757;
 }
 main .song-show-right .progress-bar{
+  position: relative;
   border-top: 4px solid rgb(203, 203, 203);
-  margin-top: 60px;
   width: 600px;
   cursor: pointer;
+}
+main .song-show-right .progress-bar .current-bar{
+  position: absolute;
+  top: -4px;
+  border-top: 4px solid #b95757;
 }
 main .song-show-right .time{
   float: right;
