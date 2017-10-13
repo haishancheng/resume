@@ -152,8 +152,8 @@ $('footer').onclick = function(e){
 //点击导航栏左右按钮
 $('footer .next-bar-in').onclick = function(){
     var pageNum = Math.ceil(channelsList.length/7)
-    clickFrequency = (clickFrequency >= pageNum) ? pageNum : ++clickFrequency
-    if(clickFrequency < Math.ceil(channelsList.length/7)){
+    if(clickFrequency < pageNum - 1){
+        clickFrequency++
         $('footer .album-box').style.transform = 'translateX(-' + 1920 * clickFrequency + 'px)'
     }
     console.log('clickFrequency', clickFrequency)
@@ -161,7 +161,7 @@ $('footer .next-bar-in').onclick = function(){
 
 $('footer .pre-bar-in').onclick = function(){
     var style = $('footer .album-box').getAttribute('style')
-    if(style != null && clickFrequency > 1){
+    if(style != null && clickFrequency > 0){
         var rightMoveTrans = 1920 - parseInt(style.match(/\d+/g)) 
         $('footer .album-box').style.transform = 'translateX(' + rightMoveTrans + 'px)'
         clickFrequency--
