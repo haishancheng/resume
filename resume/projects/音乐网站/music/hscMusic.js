@@ -7,6 +7,7 @@ function $$(val){
 var channelsList
 var currentChannelObj
 var currentSongObj
+var clickFrequency = 0
 var audioObject = new Audio()
 audioObject.autoplay = true;
 
@@ -31,7 +32,6 @@ function getChannels(callback){
     xhr.open('get', 'https://jirenguapi.applinzi.com/fm/getChannels.php', true)
     xhr.onload = function(){
         if((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304){
-            // console.log(xhr.responseText)
             callback(JSON.parse(xhr.responseText).channels)
         }else{
             console.log('获取数据失败')
@@ -73,7 +73,7 @@ function loadSong(resSong){
 }
 //先获取频道
 getChannels(function(resChannels){
-    for(var i = 0; i < 6; i++){
+    for(var i = 0; i < $$('footer .album-box p').length; i++){
         $$('footer figure p')[i].innerText = resChannels[i].name
     }
     channelsList = resChannels
@@ -141,7 +141,6 @@ $('footer').onclick = function(e){
     if(e.target.nodeName === 'IMG'){
         getSong(e.target.getAttribute("channel-id"), function(resSong){
             channelsList.forEach(function(val, index){
-                // console.log(arguments)
                 if(e.target.getAttribute("channel-id") === val.channel_id){
                     currentChannelObj = channelsList[index]
                 }
@@ -149,4 +148,23 @@ $('footer').onclick = function(e){
             loadSong(resSong)
         })
     }
+}
+//点击导航栏左右按钮
+$('footer .next-bar-in').onclick = function(){
+    var pageNum = Math.ceil(channelsList.length/7)
+    clickFrequency = (clickFrequency >= pageNum) ? pageNum : ++clickFrequency
+    if(clickFrequency < Math.ceil(channelsList.length/7)){
+        $('footer .album-box').style.transform = 'translateX(-' + 1920 * clickFrequency + 'px)'
+    }
+    console.log('clickFrequency', clickFrequency)
+}
+
+$('footer .pre-bar-in').onclick = function(){
+    var style = $('footer .album-box').getAttribute('style')
+    if(style != null && clickFrequency > 1){
+        var rightMoveTrans = 1920 - parseInt(style.match(/\d+/g)) 
+        $('footer .album-box').style.transform = 'translateX(' + rightMoveTrans + 'px)'
+        clickFrequency--
+    }
+    console.log('clickFrequency', clickFrequency)
 }
