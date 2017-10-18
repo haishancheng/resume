@@ -8,6 +8,7 @@ var channelsList
 var currentChannelObj
 var currentSongObj
 var clickFrequency = 0
+var songCycle = false;
 var audioObject = new Audio()
 audioObject.autoplay = true;
 
@@ -85,6 +86,25 @@ getChannels(function(resChannels){
         audioObject.pause()
     })
 })
+//结束自动播放下一首
+audioObject.onended = function(){
+    if(songCycle === true){
+        audioObject.play()
+    }else{
+        getSong(currentChannelObj.channel_id, function(resSong){
+            loadSong(resSong)
+        })
+    }
+}
+//单曲循环
+$('main .fa-retweet').onclick = function(){
+    this.classList.toggle('choosed');
+    if(this.classList.contains('choosed')){
+        songCycle = true;
+    }else{
+        songCycle = false;
+    }
+}
 //设置播放的时间以及进度条
 audioObject.ontimeupdate = function(){
     $('main .song-show-right .time .current-time').innerText = secToMin(this.currentTime)
@@ -120,11 +140,7 @@ $('main .song-show-left .song-ctrl .fa-forward').onclick = function(){
 }
 //点击收藏按钮变红
 $('main .song-show-left .song-ctrl .fa-heart').onclick = function(){
-    if(window.getComputedStyle(this).color === 'rgb(255, 255, 255)'){
-        this.style.color = '#b95757'
-    }else{
-        this.style.color = 'rgb(255, 255, 255)'
-    }
+    this.classList.toggle('choosed')
 }
 
 //最下面的频道导航栏中左右两个按钮的划入，划出效果
@@ -158,7 +174,6 @@ $('footer .next-bar-in').onclick = function(){
     }
     console.log('clickFrequency', clickFrequency)
 }
-
 $('footer .pre-bar-in').onclick = function(){
     var style = $('footer .album-box').getAttribute('style')
     if(style != null && clickFrequency > 0){
@@ -167,4 +182,21 @@ $('footer .pre-bar-in').onclick = function(){
         clickFrequency--
     }
     console.log('clickFrequency', clickFrequency)
+}
+//音量按钮
+$('main .song-show-right .fa-volume-up').onclick = function(){
+    var tmpNode = $('main .song-show-right .volume-ctrl')
+    this.classList.toggle('choosed')
+    // if(getComputedStyle(tmpNode).display === 'none'){
+    //     tmpNode.style.display = 'block'
+    // }else{
+    //     tmpNode.style.display = 'none'
+    // }
+    if(this.classList.contains('choosed')){
+        tmpNode.style.display = 'block'
+    }else{
+        tmpNode.style.display = 'none'
+    }
+
+    
 }
