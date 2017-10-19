@@ -90,21 +90,21 @@ main .fa-retweet{
 .choosed{
   color: #b95757;
 }
-main .progress-bar{
+.progress-bar{
   position: relative;
   cursor: pointer;
   clear: both;
 }
-main .total-bar{
+.total-bar{
   width: 600px;
   border-top: 4px solid rgb(203, 203, 203);
 }
-main .current-bar{
+.current-bar{
   position: absolute;
   top: 0;
   border-top: 4px solid #b95757;
 }
-main .song-show-right .time{
+.time{
   float: right;
   font-size: 20px;
   margin-top: 10px;
@@ -142,16 +142,17 @@ main .volume-ctrl>.volume-bar{
 main .volume-bar .total-bar{
   width: 150px;
 }
-main .song-show-right .song-name{
+.song-name{
   font-size: 30px;
   margin-top: 20px;
   margin-bottom: 15px;
   font-family: "方正舒体";
-  width: 340px;
 }
-main .song-show-right .author{
+.author{
   font-size: 18px;
   font-family: "华文新魏";
+}
+main .song-name,main .author{
   width: 340px;
 }
 footer{
@@ -196,7 +197,6 @@ footer .album-bar{
   z-index: 1;
   cursor: pointer;
   box-shadow: 0 0 5px 1px #737171;
-  /* display: none; */
 }
 footer .album-bar:hover{
   background: rgba(0,0,0,0.4);
@@ -220,4 +220,39 @@ footer .pre-bar-out{
 }
 footer .next-bar-out{
   transform: translateX(60px);
+}
+.static-page{
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 3;
+  display: none;
+  opacity: 0;
+  transition-duration: 1s;
+}
+.static-page .static-pic img{
+  position: absolute;
+  height: 450px;
+  width: 450px;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.static-page .static-bottom{
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  background: rgba(203,203,203,0.5);
+}
+.static-page .static-progress-bar .total-bar{
+  width: 100%;
+}
+.static-page .time{
+  position: relative;
+  right: 30px;
+  bottom: 25px;
 }
