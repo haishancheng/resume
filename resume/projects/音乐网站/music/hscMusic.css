@@ -135,6 +135,8 @@ main .volume-ctrl .volume-up{
   margin-top: 4px;
 }
 main .volume-ctrl>.volume-bar{
+  position: relative;
+  cursor: pointer;
   float: right;
   margin: 18px 10px 0;
   clear: none;

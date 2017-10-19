@@ -12,6 +12,7 @@ var songCycle = false
 var timer
 var audioObject = new Audio()
 audioObject.autoplay = true
+audioObject.volume = 0.5
 
 //共同函数
 function secToMin(second){
@@ -71,11 +72,30 @@ function loadSong(resSong){
     })
     $('main .song-show-right .album .album-name').innerText = currentChannelObj.name
     audioObject.src =  currentSongObj.url
-    audioObject.volume = 0.1
     audioObject.addEventListener("canplay", function(){
         $$('.time .total-time').forEach(function(node){
             node.innerText = secToMin(audioObject.duration)
         })
+
+        $('.volume-bar .current-bar').style.width = (audioObject.volume / 1) * 100 + '%'
+
+        //点击音量进度条
+        $('.volume-bar').onclick = function(e){
+            var volumeBarPercent = e.offsetX / parseInt(getComputedStyle(this).width)
+            $('.volume-bar .current-bar').style.width = volumeBarPercent * 100 + '%'//不乘以100点击的时候进度条会闪一下
+            audioObject.volume = volumeBarPercent
+            console.log('volume',audioObject.volume)
+        }
+        //点击加号，增加音量
+        $('.volume-up').onclick = function(e){
+            var percent = parseInt(getComputedStyle( $('.volume-bar .current-bar')).width) / parseInt(getComputedStyle( $('.volume-bar')).width)
+            $('.volume-bar .current-bar').style.width  = percent * 100 + 10 + '%'
+            console.log('percent',percent)
+        }
+        //点击减号，减少音量
+        $('.volume-down').onclick = function(){
+            
+        }
     });//音频准备好才能得到duration，否则得到的是NaN
     console.log("当前歌曲的obj：", currentSongObj)
     console.log('当前频道obj:', currentChannelObj)
@@ -116,10 +136,10 @@ $('main .fa-retweet').onclick = function(){
 //设置播放的时间以及进度条
 audioObject.ontimeupdate = function(){
     $$('.time .current-time').forEach(function(node){
-        node.innerText = secToMin(this.currentTime)
+        node.innerText = secToMin(audioObject.currentTime)
     })
     $$('.progress-bar .current-bar').forEach(function(node){
-        node.style.width = this.currentTime / this.duration * 100 + '%'
+        node.style.width = audioObject.currentTime / audioObject.duration * 100 + '%'
     })
 }
 //点击进度条
@@ -233,3 +253,6 @@ function showStaticPage(){
     //     $('.static-page').style.opacity = '1'
     // })//不知道为什么这样延迟不行
 }
+//音量条显示长度
+// $('.volume-bar .current-bar').style
+// node.style.width = audioObject.currentTime / audioObject.duration * 100 + '%'
