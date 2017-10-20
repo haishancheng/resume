@@ -87,14 +87,26 @@ function loadSong(resSong){
             console.log('volume',audioObject.volume)
         }
         //点击加号，增加音量
-        $('.volume-up').onclick = function(e){
-            var percent = parseInt(getComputedStyle( $('.volume-bar .current-bar')).width) / parseInt(getComputedStyle( $('.volume-bar')).width)
-            $('.volume-bar .current-bar').style.width  = percent * 100 + 10 + '%'
-            console.log('percent',percent)
+        $('.volume-up').onclick = function(){
+            var percent = parseInt(getComputedStyle( $('.volume-bar .current-bar')).width) / parseInt(getComputedStyle( $('.volume-bar')).width) * 100
+            if(0 < percent < 100){
+                if(90< percent < 100){
+                    $('.volume-bar .current-bar').style.width  = '100%'
+                }else{
+                    $('.volume-bar .current-bar').style.width  = percent + 10 + '%'
+                }
+            }
         }
         //点击减号，减少音量
         $('.volume-down').onclick = function(){
-            
+            var percent2 = parseInt(getComputedStyle( $('.volume-bar .current-bar')).width) / parseInt(getComputedStyle( $('.volume-bar')).width) * 100
+            if(0 < percent2 < 100){
+                if(0< percent2 < 10){
+                    $('.volume-bar .current-bar').style.width  = '0%'
+                }else{
+                    $('.volume-bar .current-bar').style.width  = percent2 - 10 + '%'
+                }
+            }
         }
     });//音频准备好才能得到duration，否则得到的是NaN
     console.log("当前歌曲的obj：", currentSongObj)
@@ -253,6 +265,3 @@ function showStaticPage(){
     //     $('.static-page').style.opacity = '1'
     // })//不知道为什么这样延迟不行
 }
-//音量条显示长度
-// $('.volume-bar .current-bar').style
-// node.style.width = audioObject.currentTime / audioObject.duration * 100 + '%'
