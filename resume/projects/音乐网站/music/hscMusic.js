@@ -89,22 +89,26 @@ function loadSong(resSong){
         //点击加号，增加音量
         $('.volume-up').onclick = function(){
             var percent = parseInt(getComputedStyle( $('.volume-bar .current-bar')).width) / parseInt(getComputedStyle( $('.volume-bar')).width) * 100
-            if(0 < percent < 100){
-                if(90< percent < 100){
+            if(0 <= percent && percent < 100){
+                if(90< percent && percent < 100){
                     $('.volume-bar .current-bar').style.width  = '100%'
+                    audioObject.volume = 1
                 }else{
                     $('.volume-bar .current-bar').style.width  = percent + 10 + '%'
+                    audioObject.volume += 0.1
                 }
             }
         }
         //点击减号，减少音量
         $('.volume-down').onclick = function(){
             var percent2 = parseInt(getComputedStyle( $('.volume-bar .current-bar')).width) / parseInt(getComputedStyle( $('.volume-bar')).width) * 100
-            if(0 < percent2 < 100){
-                if(0< percent2 < 10){
+            if(0 < percent2 && percent2 <= 100){
+                if(0< percent2 && percent2 < 10){
                     $('.volume-bar .current-bar').style.width  = '0%'
+                    audioObject.volume = 0
                 }else{
                     $('.volume-bar .current-bar').style.width  = percent2 - 10 + '%'
+                    audioObject.volume -= 0.1
                 }
             }
         }
